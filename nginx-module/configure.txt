@@ -1,0 +1,1 @@
+./configure --add-module=/usr/cdj/ngx_http_hello_world_module --with-pcre=/home/apollo/pcre-8.32 --with-pcre-jit
