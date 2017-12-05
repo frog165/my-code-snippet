@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:context="http://www.springframework.org/schema/context"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context.xsd" >
+
+    <!-- 引入jdbc配置文件 -->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+    
+    <!-- make spring look up annotation -->  
+    <context:annotation-config/>
+     
+    <!-- context:component-scan base-package="com.myssm"/-->
+    <!-- 扫描文件（自动将servicec层注入） -->
+    <context:component-scan base-package="com.myssm.service"/>
+    
+    <!-- 部署系统用户管理业务逻辑组件ServiceImpl,用了component-scan就不需要下面一个一个地写 -->  
+    <!-- 
+    <bean id="dao" class="com.myssm.dao.BaseDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory" />  
+    </bean>  
+    <bean id="adminService" class="com.myssm.service.AdminServiceImpl">  
+        <property name="dao" ref="dao" />  
+    </bean>  
+    -->
+    
+</beans>
