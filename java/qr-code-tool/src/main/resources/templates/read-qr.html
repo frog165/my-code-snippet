@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments :: head(title=~{::title/text()})">
+		<title>Messages : Create</title>
+	</head>
+	<body>
+		<div class="container">
+			<div th:replace="fragments :: navbar"></div>
+			<div class="float-right mt-2">
+				<a class="btn btn-primary btn-sm" th:href="@{/index}" href="index.html"> 生成二维码 </a>
+			</div>
+			<h4 class="float-left mt-2">读取二维码</h4>
+			<div class="clearfix"></div>
+			<form id="paramForm" th:action="@{/read-qr}" action="#" method="post" enctype="multipart/form-data">
+				<!-- div th:if="${#fields.hasErrors('*')}" class="alert alert-danger" role="alert">
+					<p th:each="error : ${#fields.errors('*')}" class="m-0" th:text="${error}">Validation error</p>
+				</div -->
+				<div class="form-group">
+
+					<!-- input type="text" th:field="*{summary}" th:class="${'form-control' + (#fields.hasErrors('summary') ? ' is-invalid' : '')}"-->
+					<input type="file" name="fileName"  />
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+			<div th:if=" ${successMessage}" class="clearfix">	
+				<span th:utext="${successMessage}"></span>
+			</div>		
+		</div>
+	</body>
+</html>
